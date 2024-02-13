@@ -2,7 +2,7 @@
 FROM openjdk:11-ea-9-jdk-sid
 
 # Required for starting application up.
-RUN apk update && apk add /bin/sh
+#RUN apk update && apk add /bin/sh
 
 # Create a directory for jar file
 RUN mkdir -p /opt/app
@@ -16,6 +16,6 @@ WORKDIR $PROJECT_HOME
 # Copy the .jar file from the host into the container at /app
 COPY target/private-service-0.0.1-SNAPSHOT.jar $PROJECT_HOME/private-service.jar
 
-EXPOSE 8080
+EXPOSE 8092
 # Command to run your application
 ENTRYPOINT ["java", "-jar", "private-service.jar"]
